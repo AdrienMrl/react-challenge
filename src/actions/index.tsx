@@ -28,11 +28,8 @@ export const fetchPosts: () => ((dispatch: Dispatch) => void) = () => {
 
   return async (dispatch: Dispatch) => {
     dispatch(requestPosts());
-
-    console.log("fetch…");
     const response = await fetch('http://localhost:3001/posts');
     const responseJSON = await response.json();
-    console.log(responseJSON);
     dispatch(requestPostSuccess(responseJSON));
   };
 };
