@@ -6,10 +6,13 @@ import * as Types from '../Types';
 import { PostPreview } from '.';
 
 interface PropsTypes {
-    downloadPosts: () => AnyAction;
+    downloadPosts: any;
+    postsPending: Boolean;
+    renderPosts: any;
+    posts?: Array<Types.Post>;
 };
 
-class PostLoader extends Component<any> {
+class PostLoader extends Component<PropsTypes> {
 
     state = {};
 

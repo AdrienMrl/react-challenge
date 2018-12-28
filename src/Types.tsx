@@ -6,5 +6,10 @@ export type Post = {
     id: Number
 };
 
+export type RootState = {
+    postsPending: Boolean;
+    posts?: Array<Post>;
+};
+
 export interface RootAction extends Action<any> {
 }
