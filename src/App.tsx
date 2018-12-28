@@ -3,20 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import PostPreview from './components/PostPreview';
-
-const mockupArticle = {
-  "title": "Dolorum ute in voluptas mollitia et saepe quo animi",
-  "body": "Aut dicta possimus sint mollitia voluptas commodi quo doloremque iste corrupti reiciendis voluptatem eius rerum sit cumque quod eligendi laborum minima perferendis recusandae assumenda consectetur porro architecto ipsum ipsam",
-  "id": 1,
-  "comments": [
-      {
-          "id": 1,
-          "postId": 1,
-          "body": "Odio adipisci rerum aut animi!"
-      }
-  ]
-};
+import { PostPreview, PostLoader } from './components';
+import * as Types from './Types';
 
 class App extends Component {
   render() {
@@ -25,7 +13,9 @@ class App extends Component {
         <header className="App-header">
             <h1>Cluster Coding Challenge Blog</h1>
         </header>
-        <PostPreview article={mockupArticle} />
+        <PostLoader renderPosts={(posts: Array<Types.Post>) =>
+            <PostPreview post={posts[0]} />
+        } />
       </div>
     );
   }

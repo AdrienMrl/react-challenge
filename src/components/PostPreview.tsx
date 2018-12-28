@@ -1,11 +1,11 @@
 import React from 'react';
-import { ArticleInterface } from '../models';
 import { checkPropTypes } from 'prop-types';
+import { Post } from '../Types';
 
-const PostPreview = ({article}: {article: ArticleInterface}) =>
+const PostPreview = ({post}: {post: Post}) =>
     <div>
-        <h2>{article.title}</h2>
-        <p>{article.body}</p>
+        <h2>{post.title}</h2>
+        <p>{post.body}</p>
         <hr/>
     </div>;
 
