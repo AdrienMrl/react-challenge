@@ -7,7 +7,7 @@ import { PostPreview } from '.';
 
 interface PropsTypes {
     downloadPosts: any;
-    postsPending: Boolean;
+    postsPending: boolean;
     renderPosts: any;
     posts?: Array<Types.Post>;
 };

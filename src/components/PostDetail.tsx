@@ -2,14 +2,18 @@ import React, { Component } from 'react';
 import * as Types from '../Types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchPosts } from '../actions';
+import { fetchPosts, fetchPostDetail } from '../actions';
 import { Dispatch, bindActionCreators } from 'redux';
+import { Comments } from '.';
 
 type PropsTypes = {
-    match: any;
-    postsPending: any;
-    downloadPosts: any;
-    posts?: Array<Types.Post>;
+    match: any
+    postsPending: boolean
+    postPending: boolean
+    downloadPosts: any
+    fetchPostDetail: any
+    posts?: Array<Types.Post>
+    post?: Types.PostWithComments
 };
 
 const Post = ({post}: {post: Types.Post}) =>
@@ -22,6 +26,7 @@ class PostDetail extends Component<PropsTypes> {
 
     componentDidMount() {
         this.props.downloadPosts();
+        this.props.fetchPostDetail(this.props.match.params.postId);
     }
 
     render() {
@@ -34,6 +39,7 @@ class PostDetail extends Component<PropsTypes> {
                     <Post post={this.props.posts[parseInt(this.props.match.params.postId) - 1]} /> || <p>Loading…</p>}
                 <div>
                     <hr />
+                    <Comments pending={this.props.postPending} postWithComments={this.props.post} />
                     <hr />
                     <textarea placeholder='Comment this post' />
                     <br />
@@ -46,11 +52,14 @@ class PostDetail extends Component<PropsTypes> {
 
 const mapStateToProps = (state: Types.RootState) => ({
     postsPending: state.postsPending,
-    posts: state.posts
+    postPending: state.postPending,
+    posts: state.posts,
+    post: state.postDisplay
 });
 
 const mapDispatchToProp = (dispatch: Dispatch<Types.RootAction>) => bindActionCreators({
-    downloadPosts: fetchPosts
+    downloadPosts: fetchPosts,
+    fetchPostDetail
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProp)(PostDetail);
