@@ -1,6 +1,6 @@
 ## Available Scripts
 
-To get started running this React app, run the folling scripts in the directory:
+To get started running this React app, run the following scripts in the directory:
 
 `yarn`
 
