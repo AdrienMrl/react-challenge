@@ -40,6 +40,20 @@ export const requestPostDetailSuccess = (postDetail: any) => {
   };
 }
 
+export const SUBMIT_NEW_COMMENT_NOW = 'SUBMIT_NEW_COMMENT_NOW';
+export const submitNewCommentNow = () => {
+  return {
+    type: SUBMIT_NEW_COMMENT_NOW
+  };
+}
+
+export const SUBMIT_NEW_COMMENT_SUCCESS = 'SUBMIT_NEW_COMMENT_SUCCESS';
+export const submitNewCommentSuccess = () => { // TODO: optimistic UI
+  return {
+    type: SUBMIT_NEW_COMMENT_SUCCESS
+  };
+}
+
 export const fetchPosts: () => ((dispatch: Dispatch) => void) = () => {
 
   return async (dispatch: Dispatch) => {
@@ -56,5 +70,24 @@ export const fetchPostDetail: (postId: Number) => ((dispatch: Dispatch) => void)
     const response = await fetch(`http://localhost:3001/posts/${postId}?_embed=comments`);
     const responseJSON = await response.json();
     dispatch(requestPostDetailSuccess(responseJSON));
+  };
+}
+
+export const submitNewComment: (postId: Number, content: string) => ((dispatch: Dispatch) => void) = (postId, content) => {
+  return async (dispatch: Dispatch) => {
+    dispatch(submitNewCommentNow())
+    const response = await fetch(`http://localhost:3001/comments`, {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        postId: postId,
+        body: content
+      })
+    });
+    dispatch(submitNewCommentSuccess());
+    await fetchPostDetail(postId)(dispatch); // should update state with new comment instead
   };
 }

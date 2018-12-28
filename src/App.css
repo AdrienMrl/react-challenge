@@ -7,6 +7,10 @@
   padding: 2em;
 }
 
+.App div {
+  padding: 1em;
+}
+
 .App-link {
   color: #61dafb;
 }

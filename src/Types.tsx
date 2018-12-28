@@ -23,4 +23,5 @@ export type RootState = {
 };
 
 export interface RootAction extends Action<any> {
+    type: string
 };
