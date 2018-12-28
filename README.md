@@ -26,4 +26,6 @@ There are many things that I would have liked to do better, but I was running ou
 
 - Better styling (I did almost none).
 - Better typing. I skipped typing in a few places. I'd like to have better typing for the actions and reducers.
-- Better loading, loaded, error states management. Better caching of the posts data instead of re-downloading data at every click. Wrap my components by a loading indicator HOC.
+- Better loading, loaded, error states management.
+- Better caching of the posts data instead of re-downloading data at every click. Wrap my components by a loading indicator HOC.
+- Optimistic UI for the comments.
