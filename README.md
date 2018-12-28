@@ -20,7 +20,7 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `To be improved`
+## To be improved
 
 There are many things that I would have liked to do better, but I was running out of time for the challenge.
 
