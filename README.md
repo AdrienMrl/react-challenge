@@ -27,7 +27,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ## To be improved
 
-There are many things that I would have liked to do better, but I was running out of time for the challenge.
+List of things I'd like to improve if I had more time:
 
 - Better styling (I did very little).
 - Better typing. I skipped typing in a few places.
