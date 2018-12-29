@@ -29,8 +29,8 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 There are many things that I would have liked to do better, but I was running out of time for the challenge.
 
-- Better styling (I did almost none).
-- Better typing. I skipped typing in a few places. I'd like to have better typing for the actions and reducers.
+- Better styling (I did very little).
+- Better typing. I skipped typing in a few places.
 - Better loading, loaded, error states management.
 - Better caching of the posts data instead of re-downloading data at every click. Wrap my components by a loading indicator HOC.
 - Optimistic UI for the comments.

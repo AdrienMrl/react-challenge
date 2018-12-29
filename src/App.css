@@ -8,7 +8,18 @@
 }
 
 .App div {
-  padding: 1em;
+  margin: 1em;
+}
+
+a {
+  text-decoration: none;
+  color: #FF735C;
+  font-weight: 800;
+}
+
+.Separator {
+  height: 1px;
+  background-color: #CCCCCC;
 }
 
 .App-link {

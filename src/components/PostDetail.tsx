@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { fetchPosts, fetchPostDetail, submitNewComment } from '../actions';
 import { Dispatch, bindActionCreators } from 'redux';
 import { Comments } from '.';
+import * as Reducers from '../reducers';
 
 interface PropsInterface {
     match: any
@@ -59,11 +60,13 @@ class PostDetail extends Component<PropsInterface, StateInterface> {
                 {!this.props.postsPending && this.props.posts &&
                     <Post post={this.props.posts[this.state.postId - 1]} /> || <p>Loading…</p>}
                 <div>
-                    <hr />
+                    <div className="Separator" />
+                    <h3>Comments</h3>
                     <Comments pending={this.props.postPending} postWithComments={this.props.post} />
-                    <hr />
+                    <div className="Separator" />
                     <form onSubmit={this.handleCommentSubmit.bind(this)}>
-                        <textarea placeholder='Comment this post' value={this.state.commentFormValue} onChange={this.handleCommentChange.bind(this)} />
+                        <br />
+                        <textarea style={{width: '60em', height: '15em'}} placeholder='Comment this post' value={this.state.commentFormValue} onChange={this.handleCommentChange.bind(this)} />
                         <br />
                         <button type={'submit'}>Send</button>
                     </form>
@@ -73,7 +76,7 @@ class PostDetail extends Component<PropsInterface, StateInterface> {
     };
 }
 
-const mapStateToProps = (state: Types.RootState) => ({
+const mapStateToProps = (state: Reducers.RootState) => ({
     postsPending: state.postsPending,
     postPending: state.postPending,
     posts: state.posts,

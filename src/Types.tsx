@@ -1,4 +1,5 @@
 import { Action } from "redux";
+import { StateType } from 'typesafe-actions';
 
 export type Post = {
     title: string
@@ -15,13 +16,8 @@ export type PostWithComments = {
     comments: Array<Comment>
 } & Post;
 
-export type RootState = {
-    postsPending: boolean
-    postPending: boolean
-    posts?: Array<Post>
-    postDisplay?: PostWithComments
-};
-
 export interface RootAction extends Action<any> {
     type: string
+    posts?: Array<Post>
+    postDetail?: PostWithComments
 };
